@@ -1,10 +1,12 @@
+using Projects;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("cache");
 
-var apiService = builder.AddProject<Projects.Starter_ApiService>("apiservice");
+var apiService = builder.AddProject<Starter_ApiService>("apiservice");
 
-builder.AddProject<Projects.Starter_Web>("webfrontend")
+builder.AddProject<Starter_Web>("webfrontend")
     .WithExternalHttpEndpoints()
     .WithReference(cache)
     .WithReference(apiService);

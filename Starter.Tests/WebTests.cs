@@ -1,4 +1,5 @@
 using System.Net;
+using Projects;
 
 namespace Starter.Tests;
 
@@ -8,7 +9,7 @@ public class WebTests
     public async Task GetWebResourceRootReturnsOkStatusCode()
     {
         // Arrange
-        var appHost = await DistributedApplicationTestingBuilder.CreateAsync<Projects.Starter_AppHost>();
+        var appHost = await DistributedApplicationTestingBuilder.CreateAsync<Starter_AppHost>();
         await using var app = await appHost.BuildAsync();
         await app.StartAsync();
 
